@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CS2Stats.Database\CS2Stats.Database.csproj" />
+    <ProjectReference Include="..\CS2Stats.Infrastructure\CS2Stats.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
