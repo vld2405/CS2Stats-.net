@@ -8,7 +8,7 @@ namespace CS2Stats.Core.Mapping
     {
         public static Player ToEntity(this AddPlayerRequest payload)
         {
-            var playerEntity = new Player()
+            var playerEntity = new Player
             {
                 Username = payload.Username,
                 RealName = payload.RealName,

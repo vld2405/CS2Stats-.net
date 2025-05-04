@@ -1,0 +1,27 @@
+﻿using CS2Stats.Core.Dtos.Requests.Players;
+using CS2Stats.Core.Dtos.Requests.Teams;
+using CS2Stats.Core.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CS2Stats.Api.Controllers
+{
+    [ApiController]
+    [Route("players")]
+
+    public class PlayersController(TeamsService teamsService, PlayersService playersService) : ControllerBase
+    {
+        [HttpPost("add-player")]
+        public async Task<IActionResult> AddPlayer([FromBody] AddPlayerRequest payload)
+        {
+            await playersService.AddPlayerAsync(payload);
+            return Ok("Event added successfully");
+        }
+
+        [HttpGet("get-events")]
+        public async Task<IActionResult> GetPlayers()
+        {
+            var result = await playersService.GetEventsAsync();
+            return Ok(result);
+        }
+    }
+}

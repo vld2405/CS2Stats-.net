@@ -18,8 +18,4 @@
     <ProjectReference Include="..\CS2Stats.Core\CS2Stats.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

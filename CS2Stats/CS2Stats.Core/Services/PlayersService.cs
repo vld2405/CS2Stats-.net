@@ -1,4 +1,6 @@
-﻿using CS2Stats.Core.Dtos.Requests.Players;
+﻿using CS2Stats.Core.Dtos.Common.Players;
+using CS2Stats.Core.Dtos.Requests.Players;
+using CS2Stats.Core.Dtos.Responses.Players;
 using CS2Stats.Core.Mapping;
 using CS2Stats.Database.Repositories;
 
@@ -20,6 +22,26 @@ public class PlayersService
         newPlayer.CreatedAt = DateTime.UtcNow;
 
         await playersRepository.AddAsync(newPlayer);
+    }
+
+    public async Task<GetPlayersResponse> GetEventsAsync()
+    {
+        var players = await playersRepository.GetAllAsync();
+
+        var result = new GetPlayersResponse
+        {
+            Players = players.Select(e => new PlayerDto
+            {
+                Id = e.Id,
+                Username = e.Username,
+                RealName = e.RealName,
+                Country = e.Country,
+                Team = e.Team,
+                JoinDate = e.JoinDate
+            }).ToList()
+        };
+
+        return result;
     }
 
 }

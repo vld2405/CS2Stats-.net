@@ -13,7 +13,7 @@ namespace CS2Stats.Core.Mapping
     {
         public static Team ToEntity(this AddTeamRequest payload)
         {
-            var teamEntity = new Team()
+            var teamEntity = new Team
             {
                 Name = payload.Name,
                 Country = payload.Country,

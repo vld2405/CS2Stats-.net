@@ -11,9 +11,9 @@ public class TeamsRepository : BaseRepository<Team>
         Console.WriteLine("TeamsRepository initialized");
     }
 
-    public async Task AddAsync(Player entity)
+    public async Task AddAsync(Team entity)
     {
-        cs2StatsDatabaseContext.Players.Add(entity);
+        cs2StatsDatabaseContext.Teams.Add(entity);
         await SaveChangesAsync();
     }
 }
