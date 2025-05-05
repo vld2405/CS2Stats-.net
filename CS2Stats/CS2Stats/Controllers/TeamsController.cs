@@ -17,9 +17,9 @@ namespace CS2Stats.Api.Controllers
         }
 
         [HttpGet("get-teams")]
-        public async Task<IActionResult> GetEvents()
+        public async Task<IActionResult> GetTeams()
         {
-            var result = await teamsService.GetEventsAsync();
+            var result = await teamsService.GetTeamsAsync();
             return Ok(result);
         }
     }

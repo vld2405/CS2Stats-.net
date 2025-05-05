@@ -1,5 +1,4 @@
 ﻿using CS2Stats.Core.Dtos.Requests.Players;
-using CS2Stats.Core.Dtos.Requests.Teams;
 using CS2Stats.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 

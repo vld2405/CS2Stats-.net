@@ -26,7 +26,7 @@ public class PlayersService
 
     public async Task<GetPlayersResponse> GetPlayersAsync()
     {
-        var players = await playersRepository.GetAllAsync();
+        var players = await playersRepository.GetAllWithTeamsAsync();
 
         var result = new GetPlayersResponse
         {

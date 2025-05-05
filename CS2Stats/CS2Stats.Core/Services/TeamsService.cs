@@ -21,7 +21,7 @@ namespace CS2Stats.Core.Services
         public TeamsService(TeamsRepository teamsRepository)
         {
             this.teamsRepository = teamsRepository;
-            Console.WriteLine("TicketsService initialized");
+            Console.WriteLine("TeamsService initialized");
         }
 
         public async Task AddTeamAsync(AddTeamRequest payload)
@@ -32,7 +32,7 @@ namespace CS2Stats.Core.Services
             await teamsRepository.AddAsync(newTeam);
         }
 
-        public async Task<GetTeamsResponse> GetEventsAsync()
+        public async Task<GetTeamsResponse> GetTeamsAsync()
         {
             var teams = await teamsRepository.GetAllAsync();
 
