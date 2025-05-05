@@ -7,7 +7,7 @@ namespace CS2Stats.Api.Controllers
     [ApiController]
     [Route("teams")]
 
-    public class TeamsController(TeamsService teamsService, PlayersService playersService) : ControllerBase
+    public class TeamsController(TeamsService teamsService) : ControllerBase
     {
         [HttpPost("add-team")]
         public async Task<IActionResult> AddTeam([FromBody] AddTeamRequest payload)
