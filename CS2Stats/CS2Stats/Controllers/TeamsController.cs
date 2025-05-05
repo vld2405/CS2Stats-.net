@@ -13,10 +13,10 @@ namespace CS2Stats.Api.Controllers
         public async Task<IActionResult> AddTeam([FromBody] AddTeamRequest payload)
         {
             await teamsService.AddTeamAsync(payload);
-            return Ok("Event added successfully");
+            return Ok("Team added successfully");
         }
 
-        [HttpGet("get-events")]
+        [HttpGet("get-teams")]
         public async Task<IActionResult> GetEvents()
         {
             var result = await teamsService.GetEventsAsync();

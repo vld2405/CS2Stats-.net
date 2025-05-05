@@ -12,7 +12,7 @@ namespace CS2Stats.Core.Mapping
             {
                 Username = payload.Username,
                 RealName = payload.RealName,
-                Team = payload.Team,
+                TeamId = payload.TeamId,
                 Country = payload.Country,
                 JoinDate = payload.JoinDate
             };

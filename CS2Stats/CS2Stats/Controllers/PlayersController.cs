@@ -14,13 +14,13 @@ namespace CS2Stats.Api.Controllers
         public async Task<IActionResult> AddPlayer([FromBody] AddPlayerRequest payload)
         {
             await playersService.AddPlayerAsync(payload);
-            return Ok("Event added successfully");
+            return Ok("Player added successfully");
         }
 
-        [HttpGet("get-events")]
+        [HttpGet("get-players")]
         public async Task<IActionResult> GetPlayers()
         {
-            var result = await playersService.GetEventsAsync();
+            var result = await playersService.GetPlayersAsync();
             return Ok(result);
         }
     }

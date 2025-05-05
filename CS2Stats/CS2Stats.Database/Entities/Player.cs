@@ -10,6 +10,7 @@ public class Player : BaseEntity
     public string? RealName { get; set; }
     [MaxLength(50)]
     public string? Country { get; set; }
+    public int? TeamId { get; set; }
     public Team? Team { get; set; }
-    public DateOnly JoinDate { get; set; }
+    public DateOnly? JoinDate { get; set; }
 }

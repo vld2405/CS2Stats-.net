@@ -1,5 +1,6 @@
 ﻿using CS2Stats.Database.Context;
 using CS2Stats.Database.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS2Stats.Database.Repositories;
 
@@ -15,5 +16,13 @@ public class PlayersRepository : BaseRepository<Player>
     {
         cs2StatsDatabaseContext.Players.Add(entity);
         await SaveChangesAsync();
+    }
+
+    public async Task<List<Player>> GetAllWithTeamsAsync()
+    {
+        return await cs2StatsDatabaseContext.Players
+            .Include(p => p.Team)
+            .Where(p => p.DeletedAt == null)
+            .ToListAsync();
     }
 }

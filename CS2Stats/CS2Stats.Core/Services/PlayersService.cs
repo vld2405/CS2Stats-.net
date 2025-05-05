@@ -24,7 +24,7 @@ public class PlayersService
         await playersRepository.AddAsync(newPlayer);
     }
 
-    public async Task<GetPlayersResponse> GetEventsAsync()
+    public async Task<GetPlayersResponse> GetPlayersAsync()
     {
         var players = await playersRepository.GetAllAsync();
 
@@ -36,7 +36,8 @@ public class PlayersService
                 Username = e.Username,
                 RealName = e.RealName,
                 Country = e.Country,
-                Team = e.Team,
+                TeamId = e.TeamId,
+                TeamName = e.Team?.Name,
                 JoinDate = e.JoinDate
             }).ToList()
         };

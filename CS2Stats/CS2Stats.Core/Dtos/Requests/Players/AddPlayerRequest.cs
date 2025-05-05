@@ -13,7 +13,7 @@ namespace CS2Stats.Core.Dtos.Requests.Players
         public string? Username { get; set; }
         public string? RealName { get; set; }
         public string? Country { get; set; }
-        public required Team Team { get; set; }
+        public int TeamId { get; set; }
         public DateOnly JoinDate { get; set; }
     }
 }
