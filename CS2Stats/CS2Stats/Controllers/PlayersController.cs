@@ -2,6 +2,7 @@
 using CS2Stats.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
+using System.Globalization;
 
 namespace CS2Stats.Api.Controllers
 {
@@ -23,7 +24,8 @@ namespace CS2Stats.Api.Controllers
             [FromQuery] int pageIndex = 1,
             [FromQuery] int shownItems = 5,
             [FromQuery] string? team = null,
-            [FromQuery] string? country = null)
+            [FromQuery] string? country = null,
+            [FromQuery] string sortBy = "username")
         {
             var result = await playersService.GetPlayersAsync();
 
@@ -38,6 +40,17 @@ namespace CS2Stats.Api.Controllers
             {
                 filteredPlayers = filteredPlayers.Where(p => p.Country.Equals(country, StringComparison.OrdinalIgnoreCase));
             }
+
+            filteredPlayers = sortBy.ToLower() switch
+            {
+                "username" => filteredPlayers.OrderBy(p => p.Username),
+                "realname" => filteredPlayers.OrderBy(p => p.RealName),
+                "country" => filteredPlayers.OrderBy(p => p.Country),
+                "team" => filteredPlayers.OrderBy(p => p.TeamName),
+                "joindate" => filteredPlayers.OrderBy(p => p.JoinDate),
+                "id" => filteredPlayers.OrderBy(p => p.Id),
+                _ => filteredPlayers.OrderByDescending(p => p.Username)
+            };
 
             var pagedResult = filteredPlayers
                 .Skip((pageIndex - 1) * shownItems)
