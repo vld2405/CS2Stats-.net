@@ -16,11 +16,20 @@ namespace CS2Stats.Api.Controllers
             return Ok("Player added successfully");
         }
 
+
         [HttpGet("get-players")]
-        public async Task<IActionResult> GetPlayers()
+        public async Task<IActionResult> GetPlayers(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 5)
         {
             var result = await playersService.GetPlayersAsync();
-            return Ok(result);
+
+            var pagedResult = result.Players
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList(); 
+
+            return Ok(pagedResult);
         }
     }
 }
