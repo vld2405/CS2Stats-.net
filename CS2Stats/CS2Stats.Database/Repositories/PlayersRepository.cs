@@ -25,4 +25,10 @@ public class PlayersRepository : BaseRepository<Player>
             .Where(p => p.DeletedAt == null)
             .ToListAsync();
     }
+
+    public async Task UpdateAsync(Player entity)
+    {
+        cs2StatsDatabaseContext.Players.Update(entity);
+        await SaveChangesAsync();
+    }
 }

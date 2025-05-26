@@ -59,5 +59,12 @@ namespace CS2Stats.Api.Controllers
 
             return Ok(pagedResult);
         }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdatePlayer(int id, [FromBody] UpdatePlayerRequest payload)
+        {
+            await playersService.UpdatePlayerAsync(id, payload);
+            return Ok("Player updated successfully");
+        }
     }
 }
