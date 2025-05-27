@@ -1,9 +1,9 @@
 ﻿using CS2Stats.Core.Dtos.Common.Players;
 using CS2Stats.Core.Dtos.Requests.Players;
 using CS2Stats.Core.Dtos.Responses.Players;
-using CS2Stats.Core.Exceptions;
 using CS2Stats.Core.Mapping;
 using CS2Stats.Database.Repositories;
+using CS2Stats.Infrastructure.Exceptions;
 
 namespace CS2Stats.Core.Services;
 

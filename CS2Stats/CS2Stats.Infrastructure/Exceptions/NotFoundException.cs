@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS2Stats.Core.Exceptions
+namespace CS2Stats.Infrastructure.Exceptions
 {
     public class NotFoundException : Exception
     {
