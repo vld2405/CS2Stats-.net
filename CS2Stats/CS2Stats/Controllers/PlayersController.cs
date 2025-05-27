@@ -57,6 +57,20 @@ namespace CS2Stats.Api.Controllers
                 .Take(shownItems)
                 .ToList();
 
+            Response.Headers.Add("Page-Index", pageIndex.ToString());
+            Response.Headers.Add("Items-Shown", pagedResult.Count.ToString());
+            
+            if (team != null)
+            {
+                Response.Headers.Add("Team-filter", team.ToString());
+            }
+            if (country != null)
+            {
+                Response.Headers.Add("Country-filter", country.ToString());
+            }
+
+            Response.Headers.Add("Sorted-By", sortBy.ToString());
+
             return Ok(pagedResult);
         }
 
